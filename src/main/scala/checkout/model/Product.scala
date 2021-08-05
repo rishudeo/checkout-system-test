@@ -1,21 +1,11 @@
 package checkout.model
 
-sealed trait Product {
-  def name: String
-  def price: BigDecimal
-}
+sealed abstract class Product(val name: String, val price: BigDecimal)
 
 object Product {
 
-  case object Apple extends Product {
-    val name: String      = "Apple"
-    val price: BigDecimal = 0.60
-  }
-
-  case object Orange extends Product {
-    val name: String      = "Orange"
-    val price: BigDecimal = 0.25
-  }
+  case object Apple  extends Product("Apple", 0.60)
+  case object Orange extends Product("Orange", 0.25)
 
   val AllProductsByName: Map[String, Product] =
     List(Apple, Orange)
