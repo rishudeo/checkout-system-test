@@ -1,5 +1,10 @@
 package checkout.model
 
+/**
+  * Represents an Offer that can be applied to a type of product
+  *
+  * @tparam T the type of product that the offer applies to
+  */
 sealed trait Offer[T <: Product] {
   def product: T
   def qualifyingAmount: Int
