@@ -30,7 +30,7 @@ class CheckoutImpl(offers: List[Offer[_ <: Product]] = Nil) extends Checkout {
       totalPrice(products) - discountFromOffers(products)
     }
 
-  def parseProducts(cart: List[String]): Either[Error, List[Product]] = {
+  private def parseProducts(cart: List[String]): Either[Error, List[Product]] = {
     val (errors, products) =
       cart
         .map { name =>
