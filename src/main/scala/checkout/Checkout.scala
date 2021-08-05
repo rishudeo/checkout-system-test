@@ -51,7 +51,7 @@ class CheckoutImpl(offers: List[Offer[_ <: Product]] = Nil) extends Checkout {
     offers.map { offer =>
       val qualifyingProducts = products.count(_ == offer.product)
 
-      val offerMultiple = Math.abs(qualifyingProducts / offer.qualifyingAmount)
+      val offerMultiple = Math.floor(qualifyingProducts / offer.qualifyingAmount)
 
       offer.discount * offerMultiple
     }.sum
